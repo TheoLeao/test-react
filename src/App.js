@@ -18,7 +18,7 @@ export default function App() {
 
   useEffect(() => {
     getLocation();
-  }, []);
+  },[]);
 
   const getLocation = () => {
     //check that the browser has the localisation function
@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     <>
-      <UserContext.Provider value={{user: {userLat: 'lat', userLng: 'lng'}}}>
+      <UserContext.Provider value={{user: {userLat: userLat, userLng: userLng}}}>
         <Router>
           <div>
             <TopNavigation></TopNavigation>
