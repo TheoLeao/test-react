@@ -6,7 +6,7 @@ import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
-import UserContext from '../../contexts/UserContext';
+import MapContext from '../../contexts/MapContext';
 import GeoLocation from '../../components/GeoLocation'
 
 let DefaultIcon = L.icon({
@@ -19,7 +19,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
   
 
 const Home = () => {
-    const user = useContext(UserContext)
+    const user = useContext(MapContext)
     console.log(user)
     return (
         <>

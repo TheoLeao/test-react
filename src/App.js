@@ -9,45 +9,16 @@ import {
 import Home from './components/pages/Home'
 import EditInformation from './components/pages/EditInformation'
 import TopNavigation from './components/TopNavigation';
-import UserContext from './contexts/UserContext';
+import MapContext from './contexts/MapContext';
 
 export default function App() {
-  const [userLat, setUserLat] = useState(null);
-  const [userLng, setUserLng] = useState(null);
-  const [statusLocalization, setStatusLocalization] = useState(null);
-
-  useEffect(() => {
-    getLocation();
-  },[]);
-
-  const getLocation = () => {
-    //check that the browser has the localisation function
-    if (!navigator.geolocation) {
-      setStatusLocalization('Geolocation is not supported by your browser');
-    } else {
-      setStatusLocalization('Locating...');
-      navigator.geolocation.getCurrentPosition((position) => {
-        setStatusLocalization(null);
-        setUserLat(position.coords.latitude);
-        setUserLng(position.coords.longitude);
-      }, () => {
-        setStatusLocalization('Unable to retrieve your location');
-      });
-    }
-  }
 
   return (
     <>
-      <UserContext.Provider value={{user: {userLat: userLat, userLng: userLng}}}>
+      <MapContext.Provider value={{}}>
         <Router>
           <div>
             <TopNavigation></TopNavigation>
-            <div>
-              <h1>Coordinates</h1>
-              <p>Statut localization: {statusLocalization}</p>
-              {userLat && <p>Latitude: {userLat}</p>}
-              {userLng && <p>Longitude: {userLng}</p>}
-            </div>
 
 
             <Switch>
@@ -60,7 +31,7 @@ export default function App() {
             </Switch>
           </div>
         </Router>
-      </UserContext.Provider>
+      </MapContext.Provider>
     </>
 
 
