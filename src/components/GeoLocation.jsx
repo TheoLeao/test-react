@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { TileLayer, MapContainer as LeafletMap, useMap } from "react-leaflet";
+import {  MapContainer as LeafletMap, useMap } from "react-leaflet";
 
 const GeoLocation = () => {
     const map = useMap();

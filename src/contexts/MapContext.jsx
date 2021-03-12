@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const MapContext = React.createContext({user: {}});
+const MapContext = React.createContext({markers: []});
 
 
 export default MapContext
