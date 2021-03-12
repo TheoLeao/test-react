@@ -28,7 +28,7 @@ const Home = () => {
     const EventClick = () => {
         const map = useMapEvents({
             click(e) {                                
-                console.log(e.latlng.lat,e.latlng.lng);
+                dispatch({ type: "addMarker", marker: {id: 1, coords: [e.latlng.lat, e.latlng.lng] }});
             },            
         })
         return <></>
