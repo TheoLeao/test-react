@@ -16,15 +16,12 @@ export default function App() {
     <Router>
       <div>
        <TopNavigation></TopNavigation>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/edit-information">
-            <Home />
+            <EditInformation />
           </Route>
           <Route path="/">
-            <EditInformation />
+            <Home />
           </Route>
         </Switch>
       </div>
