@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -13,11 +13,14 @@ import TopNavigation from './components/TopNavigation';
 
 
 export default function App() {
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+  const [userLat, setUserLat] = useState(null);
+  const [userLng, setUserLng] = useState(null);
   const [statusLocalization, setStatusLocalization] = useState(null);
 
-  
+  useEffect(() => {
+    getLocation();
+   }, []);
+
   const getLocation = () => {
     //check that the browser has the localisation function
     if (!navigator.geolocation) {
@@ -26,8 +29,8 @@ export default function App() {
       setStatusLocalization('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
         setStatusLocalization(null);
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
+        setUserLat(position.coords.latitude);
+        setUserLng(position.coords.longitude);
       }, () => {
         setStatusLocalization('Unable to retrieve your location');
       });
@@ -39,11 +42,10 @@ export default function App() {
       <div>
         <TopNavigation></TopNavigation>
         <div>
-          <button onClick={getLocation}>Get Location</button>
           <h1>Coordinates</h1>
-          <p>{statusLocalization}</p>
-          {lat && <p>Latitude: {lat}</p>}
-          {lng && <p>Longitude: {lng}</p>}
+          <p>Statut localization: {statusLocalization}</p>
+          {userLat && <p>Latitude: {userLat}</p>}
+          {userLng && <p>Longitude: {userLng}</p>}
         </div>
 
 
