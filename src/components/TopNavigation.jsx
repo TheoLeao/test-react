@@ -11,6 +11,9 @@ const TopNavigation = () => {
           <li>
             <Link to="/edit-information">Modifier informations</Link>
           </li>
+          <li>
+            <Link to="/manage-markers">Gestion des markers</Link>
+          </li>
         </ul>
       </nav>
     )

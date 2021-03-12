@@ -27,15 +27,12 @@ const Home = () => {
 
     const EventClick = () => {
         const map = useMapEvents({
-            click(e) {                                
-                dispatch({ type: "addMarker", marker: {id: 1, coords: [e.latlng.lat, e.latlng.lng] }});
+            click(e) {                       
+                dispatch({ type: "addMarker", marker: { id: state.markers.length+1 ,coords: [e.latlng.lat, e.latlng.lng] }});
             },            
         })
         return <></>
     }
-
-
-    console.log(state)
     return (
         <>
             <h1>Home</h1>
@@ -48,7 +45,7 @@ const Home = () => {
                     <EventClick></EventClick>
                     <GeoLocation></GeoLocation>
 
-                    <Markers state={state}></Markers>
+                    <Markers></Markers>
 
                 </MapContainer>
             </div>

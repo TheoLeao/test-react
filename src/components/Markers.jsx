@@ -8,12 +8,11 @@ const Markers = () => {
     return (
         <>
             {state.markers.map((marker, idx) => (
-                <Marker key={`marker-${idx}`} position={[marker.coords[0], marker.coords[1]]}>
+                <Marker key={`marker-${idx+1}`} position={[marker.coords[0], marker.coords[1]]}>
                     <Popup>
-                        Marker id: {idx}
+                        Marker id: {idx+1}
                     </Popup>
                 </Marker>
-
             ))}
         </>
     )

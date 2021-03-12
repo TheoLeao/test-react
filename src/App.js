@@ -8,13 +8,15 @@ import {
 
 import Home from './components/pages/Home'
 import EditInformation from './components/pages/EditInformation'
+import ManageMarkers from './components/pages/ManageMarkers';
 import TopNavigation from './components/TopNavigation';
 import MapContext from './contexts/MapContext';
 import mapReducer from './reducers/mapReducer'
 
+
 export default function App() {
   //Définition de state et de dispatch
-  const [state, dispatch] = useReducer(mapReducer, { markers: [{id: 1, coords: [51.505, -0.09]}, {id: 1, coords: [51.499, -0.09]}] } )
+  const [state, dispatch] = useReducer(mapReducer, { markers: [] } )
 
 
   return (
@@ -26,6 +28,9 @@ export default function App() {
             <Switch>
               <Route path="/edit-information">
                 <EditInformation />
+              </Route>
+              <Route path="/manage-markers">
+                <ManageMarkers/>
               </Route>
               <Route path="/">
                 <Home />
