@@ -18,7 +18,8 @@ const GeoLocation = () => {
 
     useEffect(() => {
         if(latitude && longitude){
-            map.setView([latitude,longitude])
+            //map.setView([latitude,longitude])
+            map.flyTo([latitude,longitude], map.getZoom())
         }
     }, [latitude,longitude])
 
