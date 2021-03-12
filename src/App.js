@@ -9,8 +9,7 @@ import {
 import Home from './components/pages/Home'
 import EditInformation from './components/pages/EditInformation'
 import TopNavigation from './components/TopNavigation';
-
-
+import UserContext from './contexts/UserContext';
 
 export default function App() {
   const [userLat, setUserLat] = useState(null);
@@ -19,7 +18,7 @@ export default function App() {
 
   useEffect(() => {
     getLocation();
-   }, []);
+  }, []);
 
   const getLocation = () => {
     //check that the browser has the localisation function
@@ -38,26 +37,32 @@ export default function App() {
   }
 
   return (
-    <Router>
-      <div>
-        <TopNavigation></TopNavigation>
-        <div>
-          <h1>Coordinates</h1>
-          <p>Statut localization: {statusLocalization}</p>
-          {userLat && <p>Latitude: {userLat}</p>}
-          {userLng && <p>Longitude: {userLng}</p>}
-        </div>
+    <>
+      <UserContext.Provider value={{user: {userLat: 'lat', userLng: 'lng'}}}>
+        <Router>
+          <div>
+            <TopNavigation></TopNavigation>
+            <div>
+              <h1>Coordinates</h1>
+              <p>Statut localization: {statusLocalization}</p>
+              {userLat && <p>Latitude: {userLat}</p>}
+              {userLng && <p>Longitude: {userLng}</p>}
+            </div>
 
 
-        <Switch>
-          <Route path="/edit-information">
-            <EditInformation />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+            <Switch>
+              <Route path="/edit-information">
+                <EditInformation />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </UserContext.Provider>
+    </>
+
+
   );
 }
