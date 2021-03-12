@@ -23,6 +23,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const Home = () => {
 
     const { state, dispatch } = useContext(MapContext)
+    
     console.log(state)
     return (
         <>
@@ -34,11 +35,8 @@ const Home = () => {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <GeoLocation></GeoLocation>
-                    {state.markers.map((marker, idx) => (
-                        <Marker key={`marker-${idx}`} position={[marker.coords[0],marker.coords[1]]}></Marker>
-                        
-                    ))}
-                    {/*<Markers></Markers>*/}
+                   
+                    <Markers state={state}></Markers>
 
                 </MapContainer>
             </div>

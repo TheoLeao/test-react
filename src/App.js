@@ -14,7 +14,7 @@ import mapReducer from './reducers/mapReducer'
 
 export default function App() {
   //Définition de state et de dispatch
-  const [state, dispatch] = useReducer(mapReducer, { markers: [{id: 1, coords: [51.505, -0.09]}] } )
+  const [state, dispatch] = useReducer(mapReducer, { markers: [{id: 1, coords: [51.505, -0.09]}, {id: 1, coords: [51.499, -0.09]}] } )
 
 
   return (
