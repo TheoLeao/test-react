@@ -22,8 +22,19 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const Home = () => {
 
+    //Récupération du state et de dispatch depuis MapContext
     const { state, dispatch } = useContext(MapContext)
-    
+
+    const EventClick = () => {
+        const map = useMapEvents({
+            click(e) {                                
+                console.log(e.latlng.lat,e.latlng.lng);
+            },            
+        })
+        return <></>
+    }
+
+
     console.log(state)
     return (
         <>
@@ -34,8 +45,9 @@ const Home = () => {
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
+                    <EventClick></EventClick>
                     <GeoLocation></GeoLocation>
-                   
+
                     <Markers state={state}></Markers>
 
                 </MapContainer>
