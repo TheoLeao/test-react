@@ -28,9 +28,7 @@ const Home = () => {
     const EventClick = () => {
         const map = useMapEvents({
             click(e) {     
-                console.log(state.markers.length);
-                let id = state.markers.length === 0 ? 1 : state.markers[state.markers.length-1].id+1;
-                console.log(id);         
+                let id = state.markers.length === 0 ? 1 : state.markers[state.markers.length-1].id+1;        
                 dispatch({ type: "addMarker", marker: { id: id ,coords: [e.latlng.lat, e.latlng.lng] }, nextID: state.nextID});
             },            
         })

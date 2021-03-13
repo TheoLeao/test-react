@@ -2,12 +2,7 @@ import React, { useContext } from 'react';
 import MapContext from './../../contexts/MapContext';
 
 const ManageMarkers = () => {
-
     const { state, dispatch } = useContext(MapContext);
-
-    console.log(state.markers);
-    
-
     return (
         <>
             <h1>Gestion des markers</h1>
