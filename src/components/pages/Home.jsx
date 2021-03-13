@@ -27,8 +27,11 @@ const Home = () => {
 
     const EventClick = () => {
         const map = useMapEvents({
-            click(e) {                       
-                dispatch({ type: "addMarker", marker: { id: state.markers.length+1 ,coords: [e.latlng.lat, e.latlng.lng] }});
+            click(e) {     
+                console.log(state.markers.length);
+                let id = state.markers.length === 0 ? 1 : state.markers[state.markers.length-1].id+1;
+                console.log(id);         
+                dispatch({ type: "addMarker", marker: { id: id ,coords: [e.latlng.lat, e.latlng.lng] }, nextID: state.nextID});
             },            
         })
         return <></>
@@ -37,7 +40,7 @@ const Home = () => {
         <>
             <h1>Home</h1>
             <div id="map">
-                <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} onClickHandler={() => { alert('test') }}>
+                <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
