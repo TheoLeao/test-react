@@ -4,7 +4,7 @@ import UserForm from './../../components/UserForm'
 const EditInformation = () => {
     return (
         <>
-            <h1>Edit Information</h1>
+            <h1>Modifier les informations</h1>
             <UserForm></UserForm>
         </>
     )

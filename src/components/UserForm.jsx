@@ -21,8 +21,8 @@ const UserForm = () => {
 
     return (
         <>
-            <h2>Bonjour {userInfos ? userInfos.firstName : ''} {userInfos ? userInfos.lastName : ''}</h2>
-            <form onSubmit={handleChange}>
+            <h2 className="title-hello">Bonjour {userInfos ? userInfos.firstName : ''} {userInfos ? userInfos.lastName : ''}</h2>
+            <form onSubmit={handleChange} className="form-editInfo">
                 <label>Prénom : </label>
                 <input type="text" placeholder={stateUser ? stateUser.user.firstName : ''} onChange={e => handleChange(e)} name="firstName" />
                 <label>Nom : </label>
