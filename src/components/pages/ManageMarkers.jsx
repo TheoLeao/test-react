@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import MapContext from './../../contexts/MapContext';
+import HelloName from './../HelloName';
 
 const ManageMarkers = () => {
     const { stateMap, dispatchMap } = useContext(MapContext);
     return (
         <>
             <h1>Gestion des markers</h1>
+            <HelloName></HelloName>
 
             <ul>
                 {stateMap.markers.map((marker) => marker !== undefined ? (

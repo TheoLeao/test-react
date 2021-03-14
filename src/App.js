@@ -13,34 +13,38 @@ import TopNavigation from './components/TopNavigation';
 import MapContext from './contexts/MapContext';
 import mapReducer from './reducers/mapReducer'
 import UserContext from './contexts/UserContext'
+import userReducer from './reducers/userReducer'
 
 
 export default function App() {
 
   //Définition de state et de dispatch
-  const [stateMap, dispatchMap] = useReducer(mapReducer, { markers: []} )
+  const [stateMap, dispatchMap] = useReducer(mapReducer, { markers: [] })
+  const [stateUser, dispatchUser] = useReducer(userReducer, { user: {firstName: '', lastName: ''} })
 
 
   return (
     <>
-      <MapContext.Provider value={{ stateMap, dispatchMap }}>
-        <Router>
-          <div>
-            <TopNavigation></TopNavigation>
-            <Switch>
-              <Route path="/edit-information">
-                <EditInformation />
-              </Route>
-              <Route path="/manage-markers">
-                <ManageMarkers/>
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
-      </MapContext.Provider>
+      <UserContext.Provider value={{stateUser, dispatchUser}}>
+        <MapContext.Provider value={{ stateMap, dispatchMap }}>
+          <Router>
+            <div>
+              <TopNavigation></TopNavigation>
+              <Switch>
+                <Route path="/edit-information">
+                  <EditInformation />
+                </Route>
+                <Route path="/manage-markers">
+                  <ManageMarkers />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </div>
+          </Router>
+        </MapContext.Provider>
+      </UserContext.Provider>
     </>
 
 

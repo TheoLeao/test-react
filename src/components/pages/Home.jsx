@@ -9,6 +9,8 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import MapContext from '../../contexts/MapContext';
 import GeoLocation from '../../components/GeoLocation'
 import Markers from '../Markers'
+import UserContext from './../../contexts/UserContext';
+import HelloName from './../HelloName'
 
 
 let DefaultIcon = L.icon({
@@ -24,6 +26,7 @@ const Home = () => {
 
     //Récupération du state et de dispatch depuis MapContext
     const { stateMap, dispatchMap } = useContext(MapContext)
+    const {stateUser} = useContext (UserContext)
 
     const EventClick = () => {
         const map = useMapEvents({
@@ -37,6 +40,7 @@ const Home = () => {
     return (
         <>
             <h1>Home</h1>
+            <HelloName></HelloName>
             <div id="map">
                 <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
