@@ -1,22 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 const UserForm = () => {
-    const [name, setName] = React.useState("");
-    const [firstName, setFirstName] = React.useState("");
 
-    const handleSubmit = (e) => {
-        console.log(` Formulaire submit:
-        name: ${name}
-        firstname: ${firstName}`);
-        e.preventDefault();
-    }
+    const [userInfos, setUserInfos] = useState({ firstName: "", lastName: "" });
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setUserInfos(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     return (
         <>
-        <h2>Bonjour {firstName ? firstName : ''} {name ? name: ''}</h2>
-            <form onSubmit={handleSubmit}>
-                <label> Nom : </label>
-                <input name="name" type="text" value={name} onChange={e => setName(e.target.value)} required />
-                <label> Prénom : </label>
-                <input name="firstName" type="text" value={firstName} onChange={e => setFirstName(e.target.value)} required />
+            <h2>{userInfos ? userInfos.firstName : ''} {userInfos ? userInfos.lastName : ''}</h2>
+            <form>
+                <label>Prénom : </label>
+                <input value={userInfos.firstName} type="text" onChange={handleChange} name="firstName" />
+                <label>Nom : </label>
+                <input value={userInfos.lastName} type="text" onChange={handleChange} name="lastName" />
             </form>
         </>
     )
