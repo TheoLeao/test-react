@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Marker, Popup } from 'react-leaflet';
+import { Marker } from 'react-leaflet';
 import MapContext from './../contexts/MapContext'
 
 
