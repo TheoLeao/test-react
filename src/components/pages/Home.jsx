@@ -26,14 +26,19 @@ const Home = () => {
 
     //Récupération du state et de dispatch depuis MapContext
     const { stateMap, dispatchMap } = useContext(MapContext)
-    const {stateUser} = useContext (UserContext)
+    const { stateUser } = useContext(UserContext)
 
     const EventClick = () => {
         const map = useMapEvents({
-            click(e) {     
-                let id = stateMap.markers.length === 0 ? 1 : stateMap.markers[stateMap.markers.length-1].id+1;        
-                dispatchMap({ type: "addMarker", marker: { id: id ,coords: [e.latlng.lat, e.latlng.lng] }, nextID: stateMap.nextID});
-            },            
+            click(e) {
+                let id = stateMap.markers.length === 0 ? 1 : stateMap.markers[stateMap.markers.length - 1].id + 1;
+                navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+                if (navigator.vibrate) {
+                    // vibration API supported
+                    navigator.vibrate(300);
+                }
+                dispatchMap({ type: "addMarker", marker: { id: id, coords: [e.latlng.lat, e.latlng.lng] }, nextID: stateMap.nextID });
+            },
         })
         return <></>
     }
