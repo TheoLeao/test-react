@@ -73,9 +73,47 @@ h1{
    }
 }
 /* 
+- - -   ManageMarkers STYLE   - - -
+*/
+.listMarkers{
+    display:flex;
+    flex-direction: column;
 
+        align-items: center;
+    .markerItem{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .coords, button {
+            margin: 10px;
+        }
+        hr{
+            margin: 10px 0px ;
+            width: 100%;
+        }
+        button{
+            display: flex!important;
+    -ms-flex-pack: center;
+    justify-content: center;
+    max-width: 160px;
+    font-size: 13px;
+    margin-top: 30px;
+    background-color: #c12c3e;
+    color: #fbfbfd;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 0;
+    width: auto;
+    transition: all .2s ease-in;
+    padding: 5px 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 auto;
+        }
+    }
+}
 
-
+/* 
 - - -   NAV STYLE   - - -
 */
 html {
