@@ -4,10 +4,10 @@ import MapContext from './../contexts/MapContext'
 
 
 const Markers = () => {
-    const { state } = useContext(MapContext)
+    const { stateMap } = useContext(MapContext)
     return (
         <>
-            {state.markers.map((marker, idx) => marker.id !==undefined ? (
+            {stateMap.markers.map((marker, idx) => marker.id !==undefined ? (
             <Marker key={`marker-${idx + 1}`} position={[marker.coords[0], marker.coords[1]]}>
             </Marker>
             ) : '')}

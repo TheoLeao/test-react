@@ -23,13 +23,13 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const Home = () => {
 
     //Récupération du state et de dispatch depuis MapContext
-    const { state, dispatch } = useContext(MapContext)
+    const { stateMap, dispatchMap } = useContext(MapContext)
 
     const EventClick = () => {
         const map = useMapEvents({
             click(e) {     
-                let id = state.markers.length === 0 ? 1 : state.markers[state.markers.length-1].id+1;        
-                dispatch({ type: "addMarker", marker: { id: id ,coords: [e.latlng.lat, e.latlng.lng] }, nextID: state.nextID});
+                let id = stateMap.markers.length === 0 ? 1 : stateMap.markers[stateMap.markers.length-1].id+1;        
+                dispatchMap({ type: "addMarker", marker: { id: id ,coords: [e.latlng.lat, e.latlng.lng] }, nextID: stateMap.nextID});
             },            
         })
         return <></>

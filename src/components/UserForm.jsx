@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 const UserForm = () => {
-
     const [userInfos, setUserInfos] = useState({ firstName: "", lastName: "" });
     const handleChange = e => {
         const { name, value } = e.target;

@@ -12,17 +12,18 @@ import ManageMarkers from './components/pages/ManageMarkers';
 import TopNavigation from './components/TopNavigation';
 import MapContext from './contexts/MapContext';
 import mapReducer from './reducers/mapReducer'
+import UserContext from './contexts/UserContext'
 
 
 export default function App() {
 
   //Définition de state et de dispatch
-  const [state, dispatch] = useReducer(mapReducer, { markers: []} )
+  const [stateMap, dispatchMap] = useReducer(mapReducer, { markers: []} )
 
 
   return (
     <>
-      <MapContext.Provider value={{ state, dispatch }}>
+      <MapContext.Provider value={{ stateMap, dispatchMap }}>
         <Router>
           <div>
             <TopNavigation></TopNavigation>
