@@ -44,7 +44,7 @@ const Home = () => {
     }
     return (
         <>
-            <h1>Home</h1>
+            <h1>Accueil</h1>
             <HelloName></HelloName>
             <div id="map">
                 <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>

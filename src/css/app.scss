@@ -1,19 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap");
 *{
     margin:0;
     padding: 0;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;;
 }
 $redPrimary: #c12c3e;
 $greyDark: #363636;
 
+/* 
+- - -   GENERAL STYLE   - - -
+*/
+h1{
+    font-size: 20px;
+    text-align: center;
+}
+.main{
+    padding: 0px 10px;
+}
+/* 
 
+/* 
+- - -   HelloName STYLE   - - -
+*/
+.title-hello{
+    font-size: 17px;
+    padding:20px 0px;
+    text-align: center;
+    font-weight: 400;
+}
+/* 
+/* 
+- - -   MapContainer STYLE   - - -
+*/
+.leaflet-container{
+    border-radius: 20px;
+    max-height: 65vh;
+}
 /* 
 
 - - -   NAV STYLE   - - -
-
 */
-
-
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -35,6 +61,7 @@ pre strong {
 }
 .main{
     margin-top: var(--navbar-height);
+    padding-top: 20px;
 }
 .navbar {
   position: fixed;
@@ -46,6 +73,7 @@ pre strong {
   font-family: var(--navbar-font-family);
   z-index: 9999;
   margin-bottom: var(--navbar-height);
+  padding: 0px 20px;
 }
 
 .navbar #togglericon {
@@ -319,3 +347,4 @@ pre strong {
     margin-top: 0;
   }
 }
+
